@@ -1,0 +1,11 @@
+{
+    "editor.formatOnSave": true,
+    "[c]": {
+        "editor.formatOnSave": true
+    },
+    "files.associations": {
+        "memory.h": "c",
+        "stdio.h": "c",
+        "string.h": "c"
+    }
+}
