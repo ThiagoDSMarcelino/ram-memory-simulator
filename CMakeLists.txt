@@ -14,6 +14,7 @@ set(SRC_DIR ${CMAKE_SOURCE_DIR}/src)
 set(SRCS
   ${SRC_DIR}/main.c
   ${SRC_DIR}/memory.c
+  ${SRC_DIR}/user.c
 )
 
 add_executable(program ${SRCS})

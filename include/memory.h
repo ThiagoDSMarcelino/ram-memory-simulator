@@ -7,17 +7,20 @@
 #include <string.h>
 
 // Define function pointers for store and load functions
+typedef struct Memory Memory; // Forward declaration of the Memory struct
+
+// Define function pointers for store and load functions
 typedef void (*StoreFunction)(struct Memory *memory, size_t index, char *value);
 typedef char *(*LoadFunction)(struct Memory *memory, size_t index);
 
 /// @brief Structure representing RAM Memory
-typedef struct
+struct Memory
 {
-  char **data;        ///< Array of data elements
-  size_t size;        ///< Size of the memory
-  StoreFunction store;///< Function pointer to store data
-  LoadFunction load;  ///< Function pointer to load data
-} Memory;
+  char **data;         ///< Array of data elements
+  size_t size;         ///< Size of the memory
+  StoreFunction store; ///< Function pointer to store data
+  LoadFunction load;   ///< Function pointer to load data
+};
 
 /// @brief Creates a new memory structure
 /// @param size Size of the memory
