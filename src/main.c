@@ -2,24 +2,43 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#include "user.h"
+#include "input.h"
 #include "memory.h"
+#include "command.h"
 
 int main()
 {
-  size_t size = get_user_memory_size();
+  size_t size = get_memory_size();
 
   Memory *memory = create_memory(size);
 
+  printf("\n");
+
   while (true)
   {
-    UserInput input = get_user_command();
+    InputData input = get_command();
 
-    if (input.command == Exit)
+    switch (input.command)
+    {
+    case Store:
+      memory->store(memory, input.index, input.data);
       break;
 
-    system("clear");
-  }
+    case Load:
+      char *result = memory->load(memory, input.index);
+      printf("%s", result);
+      break;
 
-  return 0;
+    case Exit:
+      drop_memory(memory);
+      return 0;
+
+    default:
+      printf("1");
+      break;
+    }
+
+    printf("\n");
+    getchar();
+  }
 }

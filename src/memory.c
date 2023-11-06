@@ -7,6 +7,7 @@ Memory *create_memory(size_t size)
   memory->data = (char **)malloc(size);
   memory->store = store_memory;
   memory->load = load_memory;
+  
   return memory;
 }
 

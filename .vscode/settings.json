@@ -5,9 +5,7 @@
     },
     "files.associations": {
         "memory.h": "c",
-        "stdio.h": "c",
-        "string.h": "c",
         "command.h": "c",
-        "user.h": "c"
+        "input.h": "c",
     }
 }
