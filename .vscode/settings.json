@@ -7,5 +7,6 @@
         "memory.h": "c",
         "command.h": "c",
         "input.h": "c",
+        "stdio.h": "c"
     }
 }

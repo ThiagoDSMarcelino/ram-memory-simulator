@@ -9,17 +9,13 @@
 // Define function pointers for store and load functions
 typedef struct Memory Memory; // Forward declaration of the Memory struct
 
-// Define function pointers for store and load functions
-typedef void (*StoreFunction)(Memory *memory, size_t index, char *value);
-typedef char *(*LoadFunction)(Memory *memory, size_t index);
-
 /// @brief Structure representing RAM Memory
 struct Memory
 {
   char **data;         ///< Array of data elements
   size_t size;         ///< Size of the memory
-  StoreFunction store; ///< Function pointer to store data
-  LoadFunction load;   ///< Function pointer to load data
+  void (*store)(Memory *memory, size_t index, char *value); ///< Function pointer to store data
+  char *(*load)(Memory *memory, size_t index);   ///< Function pointer to load data
 };
 
 /// @brief Creates a new memory structure

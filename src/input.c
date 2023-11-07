@@ -56,11 +56,6 @@ InputData get_command()
 
     // Get the command, binary and data.
     int intput_length = sscanf(buffer, "%s %s %s", cmd, binary, data);
-    if (intput_length < 2 || intput_length > 3)
-    {
-        printf("Invalid input format.\n");
-        return invalid_input();
-    }
 
     // Upper the command.
     for (size_t i = 0; i < MAX_COMMAND_SIZE; i++)
@@ -69,11 +64,11 @@ InputData get_command()
     // Check if the command is valid.
     Command command;
 
-    if (strcmp(cmd, "LD") == 0)
+    if (strcmp(cmd, "LD") == 0 && intput_length == 2)
         command = Load;
-    else if (strcmp(cmd, "ST") == 0)
+    else if (strcmp(cmd, "ST") == 0 && intput_length == 3)
         command = Store;
-    else if (strcmp(cmd, "EXIT") == 0)
+    else if (strcmp(cmd, "EXIT") == 0 && intput_length == 1)
         command = Exit;
     else
         return invalid_input();
@@ -83,7 +78,8 @@ InputData get_command()
     InputData input_data;
     input_data.command = command;
     input_data.index = index;
-    input_data.data = data;
+    input_data.data = (char *)malloc(sizeof(data));
+    strcpy(input_data.data, data);
 
     return input_data;
 }

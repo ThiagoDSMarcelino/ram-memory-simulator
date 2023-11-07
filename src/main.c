@@ -14,6 +14,7 @@ int main()
 
   printf("\n");
 
+  char *loaded_data;
   while (true)
   {
     InputData input = get_command();
@@ -25,8 +26,8 @@ int main()
       break;
 
     case Load:
-      char *result = memory->load(memory, input.index);
-      printf("%s", result);
+      loaded_data = memory->load(memory, input.index);
+      printf("%s", loaded_data);
       break;
 
     case Exit:
