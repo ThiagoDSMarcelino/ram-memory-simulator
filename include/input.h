@@ -17,9 +17,6 @@ typedef struct
     char *data;      ///< The data.
 } InputData;
 
-/// @brief Clear the stdin buffer.
-void clear_stdin();
-
 /// @brief Create an invalid user input.
 /// @return An invalid user input.
 InputData invalid_input();

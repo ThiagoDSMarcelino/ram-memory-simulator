@@ -19,10 +19,19 @@ InputData invalid_input()
 
 size_t get_memory_size()
 {
+    system("clear");
     printf("Input the memory size: \n");
     size_t size;
     scanf("%ld", &size);
     clear_stdin();
+
+    if (size <= 0 || (size & (size - 1)) != 0)
+    {
+        printf("Error: Invalid memory size.\n");
+        getchar();
+
+        return get_memory_size();
+    }
 
     return size;
 }

@@ -12,10 +12,10 @@ typedef struct Memory Memory; // Forward declaration of the Memory struct
 /// @brief Structure representing RAM Memory
 struct Memory
 {
-  char **data;         ///< Array of data elements
-  size_t size;         ///< Size of the memory
+  char **data;                                              ///< Array of data elements
+  size_t size;                                              ///< Size of the memory
   void (*store)(Memory *memory, size_t index, char *value); ///< Function pointer to store data
-  char *(*load)(Memory *memory, size_t index);   ///< Function pointer to load data
+  char *(*load)(Memory *memory, size_t index);              ///< Function pointer to load data
 };
 
 /// @brief Creates a new memory structure
