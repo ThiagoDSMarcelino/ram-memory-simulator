@@ -47,7 +47,7 @@ InputData get_command()
     }
 
     // Remove the new line character.
-    buffer[strcspn(buffer, '\n')] = '\0';
+    buffer[strcspn(buffer, "\n")] = '\0';
 
     char cmd[MAX_COMMAND_SIZE] = "";   // Command buffer.
     char binary[MAX_BINARY_SIZE] = ""; // Binary buffer.
