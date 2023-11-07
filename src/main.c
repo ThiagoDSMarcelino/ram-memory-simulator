@@ -12,8 +12,6 @@ int main()
 
   Memory *memory = create_memory(size);
 
-  printf("\n");
-
   char *loaded_data;
   while (true)
   {
@@ -27,7 +25,7 @@ int main()
 
     case Load:
       loaded_data = memory->load(memory, input.index);
-      printf("%s", loaded_data);
+      printf("%s\n", loaded_data);
       break;
 
     case Exit:
@@ -35,11 +33,11 @@ int main()
       return 0;
 
     default:
-      printf("1");
+      printf("Invalid input.\n");
       break;
     }
 
-    printf("\n");
+    // Wait user to press any key.
     getchar();
   }
 }

@@ -9,7 +9,6 @@ void clear_stdin()
 
 InputData invalid_input()
 {
-    printf("Invalid input.\n");
     InputData input;
     input.command = Invalid;
     input.index = 0;
@@ -28,9 +27,9 @@ size_t get_memory_size()
     return size;
 }
 
-#define MAX_COMMAND_SIZE 8
+#define MAX_COMMAND_SIZE 5
 #define MAX_BINARY_SIZE 64
-#define MAX_DATA_SIZE 32
+#define MAX_DATA_SIZE 64
 #define MAX_INPUT_SIZE MAX_DATA_SIZE + MAX_BINARY_SIZE + MAX_COMMAND_SIZE
 
 InputData get_command()
@@ -48,7 +47,7 @@ InputData get_command()
     }
 
     // Remove the new line character.
-    buffer[strcspn(buffer, "\n")] = '\0';
+    buffer[strcspn(buffer, '\n')] = '\0';
 
     char cmd[MAX_COMMAND_SIZE] = "";   // Command buffer.
     char binary[MAX_BINARY_SIZE] = ""; // Binary buffer.
